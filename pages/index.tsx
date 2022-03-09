@@ -4,6 +4,8 @@ import Banner from '../components/Banner'
 import Header from '../components/Header'
 import SmallCard, { explore_data_interface } from '../components/SmallCard'
 import MediumCard, { card_data_interface } from '../components/MediumCard'
+import LargeCard from '../components/LargeCard'
+import Footer from '../components/Footer'
 
 const Home: NextPage<any> = ({ exploreData, cardsData }: {
   exploreData: explore_data_interface[]
@@ -46,7 +48,16 @@ const Home: NextPage<any> = ({ exploreData, cardsData }: {
             ))}
           </div>
         </section>
+        <section>
+          <LargeCard
+            img='https://links.papareact.com/4cj'
+            title='The Greatest Outdoors'
+            description='Wishlists curated by Airbnb.'
+            buttonText='Get Inspired'
+          />
+        </section>
       </main>
+      <Footer />
     </div>
   )
 }
