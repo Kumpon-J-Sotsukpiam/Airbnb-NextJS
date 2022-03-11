@@ -33,9 +33,6 @@ export default function Map({ searchResults }: { searchResults: room_info_interf
             mapboxAccessToken={process.env.mapbox_key}
             initialViewState={{ ...viewport }}
             onMove={handleOnMove}
-            style={{
-                width:100,height:100
-            }}
         >
             {/* {searchResults.map((result) => (
                 <div key={result.long} className="flex">
