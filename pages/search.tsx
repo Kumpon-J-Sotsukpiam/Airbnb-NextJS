@@ -3,6 +3,7 @@ import React from 'react'
 import { format } from 'date-fns'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Map from '../components/Map'
 import InfoCard, { room_info_interface } from '../components/InfoCard'
 
 export default function Search({ searchResults }: { searchResults: room_info_interface[] }) {
@@ -43,6 +44,13 @@ export default function Search({ searchResults }: { searchResults: room_info_int
                             />
                         ))}
                     </div>
+                </section>
+                <section
+                    className='hidden xl:inline-flex xl:min-w-[600px]'
+                >
+                    <Map
+                        searchResults={searchResults}
+                    />
                 </section>
             </main>
             <Footer />
