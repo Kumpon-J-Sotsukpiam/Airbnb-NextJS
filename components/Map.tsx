@@ -1,6 +1,6 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
 import React, { useState } from 'react'
-import ReactmapGL, { ViewStateChangeEvent, Marker, Popup } from 'react-map-gl';
+import ReactmapGL, { ViewStateChangeEvent, Marker } from 'react-map-gl';
 import { getCenter } from 'geolib';
 
 import { room_info_interface } from './InfoCard';
@@ -24,6 +24,7 @@ export default function Map({ searchResults }: { searchResults: room_info_interf
             zoom: e.viewState.zoom
         })
     }
+
     return (
         <ReactmapGL
             mapStyle='mapbox://styles/tetravaal/cl0le6f7l002g14pcfqhmcgyw'
@@ -32,7 +33,7 @@ export default function Map({ searchResults }: { searchResults: room_info_interf
             onMove={handleOnMove}
         >
             {searchResults.map((result) => (
-                <div key={result.long} className="flex">
+                <div key={result.long}>
                     <Marker
                         longitude={result.long}
                         latitude={result.lat}
