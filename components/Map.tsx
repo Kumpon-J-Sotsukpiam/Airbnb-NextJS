@@ -1,3 +1,4 @@
+import 'mapbox-gl/dist/mapbox-gl.css';
 import React, { useState } from 'react'
 import ReactmapGL, { ViewStateChangeEvent, Marker, Popup } from 'react-map-gl';
 import { getCenter } from 'geolib';
@@ -12,8 +13,6 @@ export default function Map({ searchResults }: { searchResults: room_info_interf
     const center: any = getCenter(coordinates);
 
     const [viewport, setViewport] = useState({
-        width: '100%',
-        height: '100%',
         longitude: center?.longitude,
         latitude: center?.latitude,
         zoom: 14
@@ -22,9 +21,7 @@ export default function Map({ searchResults }: { searchResults: room_info_interf
         setViewport({
             latitude: e.viewState.latitude,
             longitude: e.viewState.longitude,
-            zoom: e.viewState.zoom,
-            width: '100%',
-            height: '100%'
+            zoom: e.viewState.zoom
         })
     }
     return (
@@ -34,7 +31,7 @@ export default function Map({ searchResults }: { searchResults: room_info_interf
             initialViewState={{ ...viewport }}
             onMove={handleOnMove}
         >
-            {/* {searchResults.map((result) => (
+            {searchResults.map((result) => (
                 <div key={result.long} className="flex">
                     <Marker
                         longitude={result.long}
@@ -42,7 +39,7 @@ export default function Map({ searchResults }: { searchResults: room_info_interf
                         color="red"
                     />
                 </div>
-            ))} */}
+            ))}
         </ReactmapGL>
     )
 }
